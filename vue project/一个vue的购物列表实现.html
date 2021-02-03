@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		  <h1>{{ message }}</h1>
+		  <table border="1" cellspacing="0" cellpadding="10">
+		  	<tr>
+					<th>序号</th>
+					<th>名称</th>
+					<th>价格</th>
+					<th>数量（份）</th>
+					
+					</tr>
+		  	<tr v-for="item in goods" :key="item.id">
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.price|currency}}</td>
+					<td>
+					<button @click="item.count--":disabled="item.count==0">-</button>
+					{{item.count}}
+					<button @click="item.count++">+</button>
+					</td>
+					</tr>
+		  </table>
+		  
+				<p>&nbsp;选择数量：{{total.count}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
+				总价：{{total.price|currency}}</p>
+		  		
+		  	
+				<!-- <li v-for="item in goods">{{item}}</li> -->
+		  
+		  
+		</div>
+		<script type="text/javascript">
+			// 自定义过滤器 "currency".
+			
+			Vue.filter('currency', function (value) {
+			    return '￥' + value.toFixed(1);
+			});
+			let app = new Vue({
+			  el: '#app',
+			  data: {
+			    message: '购物清单',
+				  goods:[
+						{
+							id:1,
+							name:"臭豆腐",
+							price:15,
+							count:0,
+						},
+						{
+							id:2,
+							name:"兰州拉面",
+							price:10,
+							count:0,
+						},
+						{
+							id:3,
+							name:"春卷",
+							price:12,
+							count:0,
+						},
+						{
+							id:4,
+							name:"百叶",
+							price:5,
+							count:0,
+						}
+					],
+					
+			  },
+				computed:{
+					total:function(){
+						var price = 0;
+						var count = 0;
+						this.goods.forEach(item =>{
+							if(1+1==2){
+								price += item.count*item.price;
+								count += item.count*1;
+								
+							}
+							
+						}
+						)
+						return ({price,count});
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>

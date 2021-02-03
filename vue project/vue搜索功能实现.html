@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model可以获得你输入的东西，然后在函数里面可以操作了 -->
+		<input type="text" v-model="searchtext" @keyup.enter="search"  placeholder="请输入内容">
+		 <button type="button" @click="search">搜索</button>
+			<ul>
+				<li v-for="item in searchlist">{{item}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+			  el: '#app',
+			 data : {
+				 searchtext:"",
+			 list:[
+										"上路巩州遇虎熊",
+				            "五百年前一场疯",
+				            "腾宵又是孙悟空",
+				            "失马鹰愁涧飞白龙",
+				            "沙河阻断路难通",
+				            "福陵山中收天蓬",
+				            "岭上前行逆黄风",
+				            "七星不照波月洞",
+				            "千年白骨化阴风",
+				            "鱼篮网通天一尾红",
+				            "紫金葫芦二道童",
+				            "九尾老狐敢压龙",
+				            "白虹坠雪浪击石碎",
+				            "思归",
+				            "难归",
+				            "堕回",
+				            "轮回",
+				            "月满一江水",
+				            "前世莫追",
+				            "福泽聚宝象",
+				            "春风度不让洛阳",
+				            "玉面狐折兰香",
+				            "七绝崖上暗伏赤色大蟒",
+				            "过西梁女儿国",
+				            "鸳鸯罗帐",
+				            "与三道斗法相火云扬",
+				            "明枪易挡暗箭难防"
+			],
+			searchlist : [],
+			 },
+			
+			
+		//系统内置的函数，不写不会显示,它的功能是实例创建完成后立即被调用
+				created(){
+					this.searchlist = this.list;
+				},
+				methods:{
+					search(){
+						// filter是过滤器，把符合条件的筛选出来,filter和match都是vue里内置的函数
+						this.searchlist = this.list.filter((text)=>
+						{
+							//匹配你输入的内容
+							return text.match(this.searchtext)
+						})
+					}
+				}
+			}) 
+			
+			
+		</script>
+		
+	</body>
+</html>
+

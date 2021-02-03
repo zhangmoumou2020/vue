@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	
+		
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0
+		}
+		
+		a,a:visited{
+			outline: none;
+			color: #0088CC;
+		}
+		a:hover{
+			text-decoration: none;
+		}
+		nav{
+			display: block;
+		}
+		nav{
+			display:inline-block;
+			margin:60px auto 45px;
+			background-color:#5597b4;
+			box-shadow:0 1px 1px #ccc;
+			border-radius:2px;
+		}
+		nav a{
+			display:inline-block;
+			padding: 18px 30px;
+			color:#fff !important;
+			font-weight:bold;
+			font-size:16px;
+			text-decoration:none !important;
+			line-height:1;
+			
+			background-color:transparent;
+			
+			-webkit-transition:background-color 0.5s;
+			-moz-transition:background-color 0.5s;
+			transition:background-color 0.5s;
+		}
+		nav.name .name,
+		nav.number .number,
+		nav.grade .grade,
+		nav.count .count
+		{
+			background-color:#e35885
+		}
+	</style>
+	<body>
+		<div id="main">
+		<nav v-bind:class="active" v-on:click.prevent>
+			<a href="#" class="name" v-on:click="makeactive('name')">姓名</a>
+			<a href="#" class="number" v-on:click="makeactive('number')">学号</a>
+			<a href="#" class="grade" v-on:click="makeactive('grade')">班级</a>
+			<a href="#" class="count" v-on:click="makeactive('count')">成绩</a>
+		</nav>
+			
+		</div>
+		<script type="text/javascript">
+			var demo = new Vue({
+				el:'#main',
+				data:{
+					active:'name'
+				},
+				methods:{
+					makeactive:function(item){
+						this.active = item 
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

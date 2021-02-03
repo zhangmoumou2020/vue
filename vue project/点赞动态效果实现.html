@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点击图片切换再点击切回来</title>
+	</head>
+	<body>	
+
+		<div id="button">
+			<h3>给TA点赞</h3>
+			<img id="img" height=60px width=60px src="dianzanqian.jpg" >
+		</div>
+<script type="text/javascript">
+	//获得id
+	function img_change(){
+	var button = document.getElementById("button");
+	var img = document.getElementById("img")
+	//点击事件
+	button.onclick= function(){
+		//获得src的值
+		if (img.getAttribute("src")=="dianzanqian.jpg"){
+			img.setAttribute("src","dianzanhou.jpg")
+			console.log("点赞成功")
+		}
+		else{
+			img.setAttribute("src","dianzanqian.jpg")
+			console.log("已取消点赞")
+		}
+	}	
+	}
+	//调用函数
+	img_change();
+	
+	
+</script>
+	</body>
+</html>
