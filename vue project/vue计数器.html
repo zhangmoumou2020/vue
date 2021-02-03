@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		 <!-- <div id="app"> 
+		<h2>当前计数:{{counter}}</h2>
+		 <button v-on:click="counter++" type="button">+</button> 
+		<button v-on:click="counter--" type="button">-</button>
+		<button v-on:click="add" type="button">+</button>	
+		<button v-on:click="sub" type="button">-</button>
+		</div>
+		<script src="vue.js"type="text/javascript">
+			
+		</script>
+	<script type="text/javascript">
+		const app = new Vue({
+			el:'#app',
+			data:{
+				counter:0
+			},
+			methods:{
+				add :function(){
+					console.log('add被执行');
+					this.counter++
+				},
+				sub :function(){
+					console.log('sub被执行');
+					this.counter--
+				}
+			}
+		})
+	</script> -->
+	<div id="app">
+		<h2>当前数字为:{{counter}}</h2>
+		<button v-on:click="add"type="button">+</button>
+		<button v-on:click="sub"type="button">-</button>
+	</div>
+	<script src="vue.js" type="text/javascript">
+		
+	</script>
+	<script type="text/javascript">
+		const app = new Vue({
+			el:'#app',
+			data:{
+				counter:0
+			},
+			methods:{
+				add:function(){
+					console.log('add has been operated');
+					this.counter++
+				},
+				sub:function(){
+					console.log('sub has been operated');
+					this.counter--
+				}
+			}
+		})
+	</script>
+	<a href="navigate.html">返回</a>
+	</body>
+</html>
